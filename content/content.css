@@ -1,0 +1,222 @@
+/* YouTube Download Extension Styles */
+
+.yt-dl-extension-container {
+  position: relative;
+  display: inline-block;
+  margin-left: 8px;
+  font-family: "Roboto", "Arial", sans-serif;
+  z-index: 9999;
+}
+
+/* Main YouTube Action Button Styling */
+.yt-dl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 18px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #f1f1f1;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  user-select: none;
+}
+
+html[dark="false"] .yt-dl-btn,
+body:not([dark]) .yt-dl-btn {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #0f0f0f;
+}
+
+.yt-dl-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+html[dark="false"] .yt-dl-btn:hover,
+body:not([dark]) .yt-dl-btn:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.yt-dl-btn:active {
+  transform: scale(0.97);
+}
+
+.yt-dl-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.yt-dl-btn .caret {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.2s ease;
+}
+
+.yt-dl-btn.active .caret {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Menu */
+.yt-dl-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  width: 240px;
+  background-color: #212121;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  padding: 8px 0;
+  display: none;
+  flex-direction: column;
+  z-index: 10000;
+  backdrop-filter: blur(10px);
+  animation: ytDlFadeIn 0.15s ease-out;
+}
+
+html[dark="false"] .yt-dl-dropdown,
+body:not([dark]) .yt-dl-dropdown {
+  background-color: #ffffff;
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.yt-dl-dropdown.show {
+  display: flex;
+}
+
+@keyframes ytDlFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.yt-dl-header {
+  padding: 6px 14px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #aaa;
+}
+
+html[dark="false"] .yt-dl-header,
+body:not([dark]) .yt-dl-header {
+  color: #606060;
+}
+
+.yt-dl-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #f1f1f1;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+html[dark="false"] .yt-dl-item,
+body:not([dark]) .yt-dl-item {
+  color: #0f0f0f;
+}
+
+.yt-dl-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+html[dark="false"] .yt-dl-item:hover,
+body:not([dark]) .yt-dl-item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.yt-dl-item-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.yt-dl-item svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.yt-dl-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background-color: rgba(255, 0, 0, 0.2);
+  color: #ff4e4e;
+}
+
+.yt-dl-divider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin: 6px 0;
+}
+
+html[dark="false"] .yt-dl-divider,
+body:not([dark]) .yt-dl-divider {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+/* Spinner */
+.yt-dl-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: ytDlSpin 0.8s linear infinite;
+}
+
+@keyframes ytDlSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* Toast Message */
+.yt-dl-toast {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  padding: 12px 20px;
+  background-color: #0f0f0f;
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 99999;
+  animation: ytDlSlideUp 0.2s ease-out;
+}
+
+@keyframes ytDlSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
