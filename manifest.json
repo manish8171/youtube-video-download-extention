@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "YouTube Video & MP3 Downloader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Download YouTube videos in MP4 format (HD/1080p/720p/360p) or extract MP3 audio directly from any YouTube watch page.",
   "minimum_chrome_version": "116",
   "permissions": [
